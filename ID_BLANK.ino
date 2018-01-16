@@ -2,14 +2,14 @@
 #include <hal/hal.h>
 
 
-// FÜR JEDEN NODE NEU AUSFÜLLEN 
+// FILL OUT FOR EVERY NODE
 static const u1_t NWKSKEY[16] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 static const u1_t APPSKEY[16] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
-// *** ACHTUNG FÜR DEVICE ADRESSE PRÄFIX 0x VERWENDEN***
+// *** ALWAYS USE PREFIX 0x FOR YOUR DEVICE ADRESS
 static const u4_t DEVADDR = 0x00000000;
 
-// *** Hier ID eintragen ***
+// *** ENTER THE ID YOU WANT TO SEND HERE ***
 byte message[] = {42};
 
 
@@ -43,7 +43,7 @@ void do_send(osjob_t* j){
     } else {
         // Prepare upstream data transmission at the next possible time.
         LMIC_setTxData2(1, message, 1, 0);
-        Serial.println(F("ID wird gesendet... "));
+        Serial.println(F("Sending ID"));
         
     }
     // Next TX is scheduled after TX_COMPLETE event.
